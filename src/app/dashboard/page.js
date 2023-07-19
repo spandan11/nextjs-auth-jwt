@@ -22,7 +22,7 @@ const Dashboard = () => {
             method: "GET",
         });
         const jsonData = await res.json();
-        setData(jsonData.data);
+        jsonData ? setData(jsonData.data) : router.push("/login")
     }
 
     return (
@@ -31,9 +31,9 @@ const Dashboard = () => {
             <button onClick={LogOut} className='p-2 m-2 bg-red-500 text-white'>Logout</button>
             <button onClick={getUserDetails} className='p-2 m-2 bg-blue-500'>Getdata</button>
             <div className="py-5 ">
-                <h1>Id: {data._id}</h1>
-                <h1>Role: {data.role}</h1>
-                <h1>Email: {data.email}</h1>
+                <h1>Id: {data?._id}</h1>
+                <h1>Role: {data?.role}</h1>
+                <h1>Email: {data?.email}</h1>
             </div>
         </div>
     )
