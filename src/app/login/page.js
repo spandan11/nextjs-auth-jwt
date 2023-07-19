@@ -14,8 +14,6 @@ const Login = () => {
         const email = e.target[0].value
         const password = e.target[1].value
 
-        console.log(email, password)
-
         try {
 
             const res = await fetch('/api/user/login', {
